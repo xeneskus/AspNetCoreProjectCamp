@@ -12,21 +12,21 @@ namespace CoreDemo.Controllers
     [AllowAnonymous]
     public class BlogController : Controller
     {
-        BlogManager bm = new BlogManager(new EfBlogRepository());
+        BlogManager blogManager = new BlogManager(new EfBlogRepository());
         public IActionResult Index()
         {
-            var values = bm.GetBlogListWithCategory();
+            var values = blogManager.GetBlogListWithCategory();
             return View(values);
         }
         public IActionResult BlogReadAll(int id)
         {
             ViewBag.i = id;
-            var values = bm.GetBlogById(id);
+            var values = blogManager.GetBlogById(id);
             return View(values);
         }
         public IActionResult BlogListByWriter()
         {
-           var values = bm.GetListWithCategoryByWriterBm(1);
+           var values = blogManager.GetListWithCategoryByWriterBm(1);
             return View(values);
         }
         [HttpGet]
@@ -51,7 +51,7 @@ namespace CoreDemo.Controllers
                 blog.BlogStatus = true;
                 blog.BlogCreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                 blog.WriterID = 1;
-                bm.TAdd(blog);
+                blogManager.TAdd(blog);
                 return RedirectToAction("BlogListByWriter", "Blog");
             }
             else
@@ -62,6 +62,13 @@ namespace CoreDemo.Controllers
                 }
             }
             return View();
+        }
+
+        public IActionResult DeleteBlog (int id)
+        {
+            var blogValue = blogManager.TGetById(id);
+            blogManager.TDelete(blogValue);
+            return RedirectToAction("BlogListByWriter");
         }
 
     }
