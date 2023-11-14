@@ -13,6 +13,8 @@ namespace CoreDemo.Controllers
     public class BlogController : Controller
     {
         BlogManager blogManager = new BlogManager(new EfBlogRepository());
+        CategoryManager cm = new CategoryManager(new EfCategoryRepository());
+
         public IActionResult Index()
         {
             var values = blogManager.GetBlogListWithCategory();
@@ -26,20 +28,21 @@ namespace CoreDemo.Controllers
         }
         public IActionResult BlogListByWriter()
         {
-           var values = blogManager.GetListWithCategoryByWriterBm(1);
+            var values = blogManager.GetListWithCategoryByWriterBm(1);
             return View(values);
         }
         [HttpGet]
         public IActionResult BlogAdd()
         {
-            CategoryManager cm = new CategoryManager(new EfCategoryRepository());
             List<SelectListItem> categoryValues = (from x in cm.GetList()
-                                                  select new SelectListItem
-                                                  {Text= x.CategoryName,
-                                                  Value=x.CategoryID.ToString()}).ToList();
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.CategoryName,
+                                                       Value = x.CategoryID.ToString()
+                                                   }).ToList();
             ViewBag.cv = categoryValues;
             return View();
-        }  
+        }
         [HttpPost]
         public IActionResult BlogAdd(Blog blog)
         {
@@ -64,7 +67,7 @@ namespace CoreDemo.Controllers
             return View();
         }
 
-        public IActionResult DeleteBlog (int id)
+        public IActionResult DeleteBlog(int id)
         {
             var blogValue = blogManager.TGetById(id);
             blogManager.TDelete(blogValue);
@@ -74,11 +77,22 @@ namespace CoreDemo.Controllers
         public IActionResult EditBlog(int id)
         {
             var blogValue = blogManager.TGetById(id);
+            List<SelectListItem> categoryValues = (from x in cm.GetList()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.CategoryName,
+                                                       Value = x.CategoryID.ToString()
+                                                   }).ToList();
+            ViewBag.cv = categoryValues;
             return View(blogValue);
         }
         [HttpPost]
         public IActionResult EditBlog(Blog blog)
         {
+            blog.WriterID = 1;
+            blog.BlogCreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+            blog.BlogStatus = true;
+            blogManager.TUpdate(blog);
             return RedirectToAction("BlogListByWriter");
         }
     }
