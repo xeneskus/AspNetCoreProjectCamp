@@ -21,7 +21,23 @@ namespace DataAccessLayer.Concrete
                 .WithMany(y => y.AwayMatches)
                 .HasForeignKey(z => z.GuestTeamID)
                 .OnDelete(DeleteBehavior.ClientSetNull);
-                
+            //HomeMatches ---> WriterSender
+            //AwayMatches ---> WriterReceiver
+
+            //HomeTeam ----> SenderUser
+            //GuestTeam ----> ReceiverUser
+            modelBuilder.Entity<Message2>()
+            .HasOne(x => x.SenderUser)
+            .WithMany(y => y.WriterSender)
+            .HasForeignKey(z => z.SenderID)
+            .OnDelete(DeleteBehavior.ClientSetNull);
+
+            modelBuilder.Entity<Message2>()
+                .HasOne(x => x.ReceiverUser)
+                .WithMany(y => y.WriterReceiver)
+                .HasForeignKey(z => z.ReceiverID)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+
         }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Blog> Blogs { get; set; }
@@ -35,5 +51,6 @@ namespace DataAccessLayer.Concrete
         public DbSet<Message> Messages { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Match> Matches { get; set; }
+        public DbSet<Message2> Message2s { get; set; }
     }
 }
