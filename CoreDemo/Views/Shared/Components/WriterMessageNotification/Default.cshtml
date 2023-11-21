@@ -9,11 +9,11 @@
     {
         <a href="/Message/Inbox/" class="dropdown-item preview-item">
             <div class="preview-thumbnail">
-                <img src="~/writer/assets/images/faces/face4.jpg" alt="image" class="profile-pic">
+                <img src="@item.SenderUser.WriterImage" alt="image" class="profile-pic">
                
             </div>
             <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                <h5 class="text-black">@item.SenderID sana mesaj gönderdi ! </h5>
+                <h5 class="text-black">@item.ReceiverUser.WriterName sana mesaj gönderdi ! </h5>
                 <h6 class="text-gray mb-0"> @item.MessageDate.ToShortDateString() </h6>
             </div>
         </a>
