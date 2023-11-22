@@ -4,6 +4,7 @@ using DataAccessLayer.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20231122201338_mig_UpdateMessage2")]
+    partial class mig_UpdateMessage2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,7 +53,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("AboutID");
 
-                    b.ToTable("Abouts", (string)null);
+                    b.ToTable("Abouts");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Blog", b =>
@@ -91,7 +94,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("WriterID");
 
-                    b.ToTable("Blogs", (string)null);
+                    b.ToTable("Blogs");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.BlogRating", b =>
@@ -113,7 +116,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("BlogRatingId");
 
-                    b.ToTable("BlogRatings", (string)null);
+                    b.ToTable("BlogRatings");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Category", b =>
@@ -135,7 +138,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("CategoryID");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Comment", b =>
@@ -171,7 +174,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("BlogID");
 
-                    b.ToTable("Comments", (string)null);
+                    b.ToTable("Comments");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Contact", b =>
@@ -202,7 +205,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("ContactID");
 
-                    b.ToTable("Contact", (string)null);
+                    b.ToTable("Contact");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Match", b =>
@@ -231,7 +234,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("HomeTeamID");
 
-                    b.ToTable("Matches", (string)null);
+                    b.ToTable("Matches");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Message", b =>
@@ -262,7 +265,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("MessageID");
 
-                    b.ToTable("Messages", (string)null);
+                    b.ToTable("Messages");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Message2", b =>
@@ -300,7 +303,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("SenderID");
 
-                    b.ToTable("Message2s", (string)null);
+                    b.ToTable("Message2s");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.NewsLetter", b =>
@@ -319,7 +322,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("MailID");
 
-                    b.ToTable("NewsLetters", (string)null);
+                    b.ToTable("NewsLetters");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Notification", b =>
@@ -350,7 +353,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("NotificationID");
 
-                    b.ToTable("Notifications", (string)null);
+                    b.ToTable("Notifications");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Team", b =>
@@ -366,7 +369,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("TeamID");
 
-                    b.ToTable("Teams", (string)null);
+                    b.ToTable("Teams");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Writer", b =>
@@ -397,7 +400,7 @@ namespace DataAccessLayer.Migrations
 
                     b.HasKey("WriterID");
 
-                    b.ToTable("Writers", (string)null);
+                    b.ToTable("Writers");
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Blog", b =>
