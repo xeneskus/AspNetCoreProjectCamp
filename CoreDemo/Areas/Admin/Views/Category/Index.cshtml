@@ -1,5 +1,6 @@
-﻿@using EntityLayer.Concrete
-@model List<Category>
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<EntityLayer.Concrete.Category>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
@@ -23,4 +24,5 @@
         <td><a href="#" class="btn btn-warning">Aktif Yap</a></td>
         <td><a href="#" class="btn btn-success">Düzenle</a></td>
     </tr>
-}</table>
+}</table> <br />
+@Html.PagedListPager((IPagedList)Model,page=>Url.Action("Index",new{page}))
