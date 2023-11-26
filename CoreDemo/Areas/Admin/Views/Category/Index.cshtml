@@ -24,5 +24,6 @@
         <td><a href="#" class="btn btn-warning">Aktif Yap</a></td>
         <td><a href="#" class="btn btn-success">Düzenle</a></td>
     </tr>
+
 }</table> <br />
 @Html.PagedListPager((IPagedList)Model,page=>Url.Action("Index",new{page}))
