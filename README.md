@@ -104,3 +104,9 @@ This project was developed with Murat Yücedağ in ASP.Net Core 5.0 camp. In thi
 <li>Message details are listed.</li>
 <li>The information of the logged in author was brought.</li>
 </ul>
+
+ <h3>Lesson 87 - ..</h3>
+<li>Admin theme has been added and Turkishized.</li>
+<li>Admin Layout has been edited.</li>
+<li>Controllers belonging to the administrator were created over Areas.</li>
+<li>Categories are listed in the admin panel.</li>
