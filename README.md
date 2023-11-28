@@ -105,8 +105,14 @@ This project was developed with Murat Yücedağ in ASP.Net Core 5.0 camp. In thi
 <li>The information of the logged in author was brought.</li>
 </ul>
 
- <h3>Lesson 87 - ..</h3>
+ <h3>Lesson 87 - 102</h3>
 <li>Admin theme has been added and Turkishized.</li>
 <li>Admin Layout has been edited.</li>
 <li>Controllers belonging to the administrator were created over Areas.</li>
 <li>Categories are listed in the admin panel.</li>
+<li>Adding and deleting new categories in the admin panel.</li>
+<li>An Excel report of dynamic and static information was created.</li>
+<li>Widgets have been created.</li>
+<li>Statistics are complete.</li>
+<li>Admin table has been created.</li>
+ <h3>Lesson 103 - ..</h3>
