@@ -1,4 +1,5 @@
 ﻿@{
+
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
@@ -9,12 +10,12 @@
 <button type="button" id="btngetbyid" class="btn btn-outline-success">Yazar Getir.</button>
 <br />
 <br />
-<div id="writerList">
+<div id="writerlist">
     Buraya yazarlar gelecek
     </div><br />
 <div id="writerget">
-    Buraya 1 yazar gelecek
-</div>
+ 
+</div><br />
 <div>
     <input type="text" id="writerid" placeholder="Yazar ID Değerini Girin" class="form-control"/>
 </div>
@@ -40,7 +41,19 @@
         });
 $("#btngetbyid").click(x => {
     let id = $("#writerid").val();
-    console.log(id);
+    $.ajax({
+        contentType: "application/json",
+        dataType: "json",
+        type: "Get",
+        url: "/Admin/Writer/GetWriterByID/",
+        data: { writerid: id },
+        success: function(func) {
+            let = jQuery.parseJSON(func);
+            console.log(w);
+            let getValue = `<table class=table table-bordered> <tr> <th> Yazar ID</th> <th> Yazar Adı</th> </tr><tr><td>${w.Id}</td><td>${w.Name}</td></tr></table>`;
+            $("writerget").html(getValue);
+        }
+    });
 });
     </script>
 }
