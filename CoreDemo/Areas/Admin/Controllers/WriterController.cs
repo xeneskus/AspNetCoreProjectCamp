@@ -30,6 +30,12 @@ namespace CoreDemo.Areas.Admin.Controllers
             return Json(jsonWriters);
 
         }
+        public IActionResult DeleteWriter(int id)
+        {
+            var writer = writers.FirstOrDefault(x => x.Id == id);
+            writers.Remove(writer);
+            return Json(writer);
+        }
         public static List<WriterClass> writers = new List<WriterClass>
         {
             new WriterClass
