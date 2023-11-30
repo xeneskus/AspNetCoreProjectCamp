@@ -124,4 +124,4 @@ This project was developed with Murat Yücedağ in ASP.Net Core 5.0 camp. In thi
 <li>Data fetching process was done according to ID with Ajax.</li>
 <li>Adding, deleting and updating with Ajax has been completed.</li>
 <h3>Lesson 114 - ...</h3>
-<li>Api login process is complete.</li>
+<li>Api layer created.</li>
