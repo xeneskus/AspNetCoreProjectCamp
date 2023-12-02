@@ -123,8 +123,6 @@ This project was developed with Murat Yücedağ in ASP.Net Core 5.0 camp. In thi
  <li>The value sent as ajax parameter is listed on the console.</li>
 <li>Data fetching process was done according to ID with Ajax.</li>
 <li>Adding, deleting and updating with Ajax has been completed.</li>
- <h3>Lesson 122 - ...</h3>
- <li>Identity..</li>
 <h3>Lesson 114 - 121 </h3>
 <li>Api layer created.</li>
 <li>Swagger and Api Get List operations have been created.</li>
@@ -132,3 +130,5 @@ This project was developed with Murat Yücedağ in ASP.Net Core 5.0 camp. In thi
 <li>Data fetching with apis has been enabled.</li>
 <li>Added delete and update process with apis</li>
 <li>Necessary actions were taken by communicating the project with API.</li>
+ <h3>Lesson 122 - ...</h3>
+ <li>Identity..</li>
