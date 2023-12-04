@@ -1,9 +1,10 @@
 ﻿using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccessLayer.Concrete
 {
-    public class Context : DbContext
+    public class Context : IdentityDbContext<AppUser,AppRole,int>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -21,6 +22,8 @@ namespace DataAccessLayer.Concrete
                 .WithMany(y => y.AwayMatches)
                 .HasForeignKey(z => z.GuestTeamID)
                 .OnDelete(DeleteBehavior.ClientSetNull);
+            base.OnModelCreating(modelBuilder);
+            
             //HomeMatches ---> WriterSender
             //AwayMatches ---> WriterReceiver
 

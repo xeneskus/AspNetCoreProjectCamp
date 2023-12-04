@@ -1,3 +1,5 @@
+using BlogApiDemo.DataAccessLayer;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -30,6 +32,12 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LoginPath = "/Login/Index";
     options.SlidingExpiration = true;
 });
+builder.Services.AddDbContext<Context>();
+builder.Services.AddIdentity<AppUser, AppRole>(x =>
+{
+    x.Password.RequireUppercase = false;
+    x.Password.RequireNonAlphanumeric = false;
+}).AddEntityFrameworkStores<Context>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
