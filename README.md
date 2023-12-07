@@ -131,4 +131,8 @@ This project was developed with Murat Yücedağ in ASP.Net Core 5.0 camp. In thi
 <li>Added delete and update process with apis</li>
 <li>Necessary actions were taken by communicating the project with API.</li>
  <h3>Lesson 122 - ...</h3>
- <li>Identity..</li>
+ <li>Identity library has been created.</li>
+ <li>Registration with Identity was realized.</li>
+ <li>Completed login process with Identity</li>
+ <li>The process of fetching the data of the person logged in with Identity is complete.</li>
+ <li>Mail newsletter was organized with Ajax.</li>
