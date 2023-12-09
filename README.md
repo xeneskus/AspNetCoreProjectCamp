@@ -136,3 +136,6 @@ This project was developed with Murat Yücedağ in ASP.Net Core 5.0 camp. In thi
  <li>Completed login process with Identity</li>
  <li>The process of fetching the data of the person logged in with Identity is complete.</li>
  <li>Mail newsletter was organized with Ajax.</li>
+<li>Revisions were made to the author panel.</li>
+<li>Author information linked to Identity.</li>
+<li>Password update was made with Identity.</li>
